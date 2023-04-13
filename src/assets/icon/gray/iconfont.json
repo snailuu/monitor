@@ -1,0 +1,44 @@
+{
+  "id": "4009227",
+  "name": "灰色",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21151846",
+      "name": "智能灯镜控制器",
+      "font_class": "lt-mir",
+      "unicode": "e883",
+      "unicode_decimal": 59523
+    },
+    {
+      "icon_id": "21161142",
+      "name": "光温湿度传感器",
+      "font_class": "ss-ith",
+      "unicode": "e888",
+      "unicode_decimal": 59528
+    },
+    {
+      "icon_id": "21161143",
+      "name": "多功能传感器",
+      "font_class": "ss-los",
+      "unicode": "e889",
+      "unicode_decimal": 59529
+    },
+    {
+      "icon_id": "21161151",
+      "name": "溢水传感器",
+      "font_class": "ss-wat",
+      "unicode": "e88a",
+      "unicode_decimal": 59530
+    },
+    {
+      "icon_id": "21161152",
+      "name": "温湿度传感器",
+      "font_class": "ss-ths",
+      "unicode": "e88b",
+      "unicode_decimal": 59531
+    }
+  ]
+}
