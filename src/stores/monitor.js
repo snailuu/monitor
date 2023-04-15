@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { ElMessage } from 'element-plus'
 
 export default {
     state: {
@@ -11,9 +12,9 @@ export default {
 
     },
     actions: {
-        change_monitor(data) {
+        change_monitor(context, data) {
             let change_type = "";
-            switch (change_type) {
+            switch (data) {
                 case 1:
                     change_type = "up";
                     break;
@@ -30,8 +31,20 @@ export default {
                     change_type = "recover";
                     break;
             }
-            let url = "http://192.168.100.25:8000/monitor/" + change_type;
-            console.log("url = ", url);
+            let url = "http://192.168.208.26:8000/monitor/" + change_type;
+            $.ajax({
+                url: url,
+                type: "get",
+                success(resp) {},
+                error(resp) {
+                    ElMessage({
+                        showClose: true,
+                        message: "调整监控画面角度失败",
+                        type: 'error',
+                        duration: 1000,
+                    })
+                }
+            })
         }
     },
     modules: {}

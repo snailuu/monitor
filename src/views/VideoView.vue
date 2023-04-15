@@ -25,13 +25,13 @@
         <span class="iconfont icon-reload-rectangle" @click="change_monitor(0)"></span>
       </div>
       <div class="item icon">
-        <span class="iconfont icon-arrow-down-rectangle" @click="change_monitor(2)"></span>
+        <span class="iconfont icon-arrow-down-rectangle" @click="change_monitor(3)"></span>
       </div>
     </div>
     <div>
       <div class="item"></div>
       <div class="item icon">
-        <span class="iconfont icon-arrow-right-rectangle" @click="change_monitor(3)"></span>
+        <span class="iconfont icon-arrow-right-rectangle" @click="change_monitor(2)"></span>
       </div>
       <div class="item"></div>
     </div>
@@ -46,8 +46,8 @@ const options = reactive({
   src: "http://43.142.114.182:80/hls/abcd/index.m3u8", //视频源
   type: 'application/x-mpegURL', //视频类型
 })
-
 const store = useStore();
+
 const change_monitor = id => {
   store.dispatch("change_monitor", id);
 }

@@ -10,12 +10,12 @@
               {{ item[1] }}
           </span>
           &nbsp;
-          <span style="color: #000000;">
+          <!-- <span style="color: #000000;">
               {{ item[2] }}
           </span>
-          &nbsp;
+          &nbsp; -->
           <span style="color: #476CFB;">
-              {{ item[3] }}
+              {{ item[2] }}
           </span>
       </ul>
     </div>
@@ -23,13 +23,22 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import { useStore } from 'vuex';
+import { ElMessage } from 'element-plus'
+
+
 const store = useStore();
 let logs = store.state.message.logs;
-
+let flag = 0;
 onMounted(() => {
   updateLogs();
+  ElMessage({
+      showClose: true,
+      message: "获取日志成功",
+      type: 'success',
+      duration: 500,
+  })
 })
 
 const updateLogs = () =>{

@@ -59,7 +59,6 @@ const change_working = (id, working) => {
 
 const change_brightness = (id, val) => {
 
-  // TODO 为每个操作弹出一个消息框
   // ElMessage({
   //   showClose: true,
   //   message: 'O.',
@@ -67,7 +66,6 @@ const change_brightness = (id, val) => {
   //   duration: 3000,
   // })
 
-  // console.log(id, val);
   store.dispatch("change_kaiguang_brightness", {
     id,
     brightness: val
@@ -144,7 +142,6 @@ const show_kaiguang_data = () =>{
     chart.setOption(options);
 }
 onMounted(() =>{
-  console.log("组件挂载");
   store.dispatch("get_sersor_all_data");
   show_kaiguang_data();
 })

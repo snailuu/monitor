@@ -41,35 +41,7 @@ import { ElMessage } from 'element-plus';
 import { useStore} from 'vuex'
 import './assets/icon/white/iconfont.css'
 
-const store = useStore();
 
-onMounted(() => {
-  // 监控弹出信息
-  showMessage();
-})
-const showMessage = () =>{
-  let error_msg = store.state.message.error_msg;
-  let success_msg = store.state.message.success_msg;
-  if(error_msg !== ""){
-    ElMessage({
-        message: error_msg,
-        type: 'warning',
-        duration: 3000,
-    });
-    store.commit("update_error_msg","");
-  } else if (success_msg !== "") {
-    ElMessage({
-        message: success_msg,
-        type: 'success',
-        duration: 3000,
-    });
-    store.commit("update_success_msg","");
-  }
-  setTimeout(showMessage, 1000);
-
-}
-// import './assets/icon/gray/iconfont.css'
-const active = ref('')
 </script>
 
 <style scoped>

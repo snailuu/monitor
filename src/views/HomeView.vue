@@ -23,29 +23,38 @@
 
 <script setup>
 import { useStore} from 'vuex'
-import { onMounted, onUnmounted, reactive } from 'vue';
-
+import { onMounted, onUnmounted } from 'vue';
+import { ElMessage } from 'element-plus'
 const store = useStore();
 let get_data = false;
+let get_flag = 1;
+
 onMounted(() =>{
-  console.log("组件挂载");
   get_data = true;
+  
   get_sersor_all_data();
+  get_sensor_gps();
 })
 
 onUnmounted(() => {
   get_data = false;
-  console.log("组件卸载");
 })
 
 const data = store.state.message.sensor;
-console.log(data);
 
 const get_sersor_all_data = () => {
+
   store.dispatch("get_sersor_all_data");
   if(get_data){
-    setTimeout(get_sersor_all_data, 1000);
+    setTimeout(get_sersor_all_data, 1000 * 10);
 
+  }
+}
+
+const get_sensor_gps = () => {
+  store.dispatch("get_sensor_gps");
+  if(get_data){
+    setTimeout(get_sersor_all_data, 1000 * 60 * 60);
   }
 }
 
