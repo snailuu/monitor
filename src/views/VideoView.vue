@@ -63,7 +63,6 @@ const timer = setInterval(function () {
 
 ws.onmessage = function (res) {
   let ret_data = JSON.parse(res.data)["data"];
-  console.log("ret_data:", ret_data);
 
   // 摄像头数据
   let img_src = ret_data[0].img_date_url
