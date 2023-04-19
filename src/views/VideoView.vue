@@ -1,7 +1,10 @@
 <template>
   <div class="box">
-    <div class="video">
-      <vue3VideoPlay width="800px" title="监控画面" :src="options.src" :type="options.type" :autoPlay="false" />
+    <div class="video" id="img">
+      <!-- <vue3VideoPlay width="800px" title="监控画面" :src="options.src" :type="options.type" :autoPlay="false" /> -->
+      <!-- <div id="img"> -->
+      <img :src="imgSrc" style="height='100%' width='100%'">
+      <!-- </div> -->
     </div>
     <div class="control">
       <div>
@@ -34,7 +37,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { useStore } from 'vuex';
 const options = reactive({
   src: "http://81.71.160.25:84/hls/123/hls.m3u8", //视频源
@@ -45,6 +48,31 @@ const store = useStore();
 const change_monitor = id => {
   store.dispatch("change_monitor", id);
 }
+
+
+const imgSrc = ref(""); // 使用 ref 创建一个响应式数据
+
+const ws = new WebSocket("ws://127.0.0.1:8090/camera");
+
+const timer = setInterval(function () {
+  if (ws.readyState == 1) {
+    ws.send("camera");
+    clearInterval(timer);
+  }
+}, 10);
+
+ws.onmessage = function (res) {
+  let ret_data = JSON.parse(res.data)["data"];
+  console.log("ret_data:", ret_data);
+
+  // 摄像头数据
+  let img_src = ret_data[0].img_date_url
+
+  imgSrc.value = img_src; // 修改响应式数据的值，从而实现更新图片链接的效果
+
+  ws.send("camera");
+}
+
 </script>
 
 <style scoped>
@@ -96,5 +124,9 @@ video {
   font-size: 80px;
   cursor: pointer;
   ;
+}
+
+#img{
+  width: 800px;
 }
 </style>

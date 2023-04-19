@@ -290,7 +290,7 @@ export default {
 
                     ])
                 },
-                error(resp) {
+                error() {
                     ElMessage({
                         showClose: true,
                         message: "获取传感器信息失败",
@@ -319,7 +319,7 @@ export default {
                         }
                     ])
                 },
-                error(resp) {
+                error() {
                     ElMessage({
                         showClose: true,
                         message: "获取GPS信息失败",
@@ -338,21 +338,37 @@ export default {
             let url = "http://192.168.208.26:8000/server/lamp/" + change_type + "/" + change_id
 
             $.ajax({
-                url: url,
-                type: "get",
-                success(resp) {
-                    //开关开启后亮度显示
-                    url = "http://192.168.208.26:8000/server/lamp/lightStatus/" + id.toString().padStart(3, '0');
-                    $.ajax({
-                        url: url,
-                        type: "get",
-                        success(resp) {},
-                        error(resp) {}
-                    })
-                },
-                error(resp) {}
-            })
-            context.commit("update_kaiguang_status", id);
+                    url: url,
+                    type: "get",
+                    success(resp) {
+                        //开关开启后亮度显示
+                        url = "http://192.168.208.26:8000/server/lamp/lightStatus/" + id.toString().padStart(3, '0');
+                        $.ajax({
+                            url: url,
+                            type: "get",
+                            success(resp) {
+                                context.commit("update_kaiguang_status", id);
+                            },
+                            error() {
+                                ElMessage({
+                                    showClose: true,
+                                    message: "调整路灯状态失败，请重新获取或检查相关问题",
+                                    type: 'error',
+                                    duration: 1000,
+                                })
+                            }
+                        })
+                    },
+                    error() {
+                        ElMessage({
+                            showClose: true,
+                            message: "调整路灯状态失败，请重新获取或检查相关问题",
+                            type: 'error',
+                            duration: 1000,
+                        })
+                    }
+                })
+                // context.commit("update_kaiguang_status", id);
         },
         change_kaiguang_brightness(context, data) {
 
@@ -395,8 +411,13 @@ export default {
                                 })
 
                             },
-                            error(resp) {
-
+                            error() {
+                                ElMessage({
+                                    showClose: true,
+                                    message: "调节亮度失败，请重新获取或检查相关问题",
+                                    type: 'error',
+                                    duration: 1000,
+                                })
 
                             }
                         })

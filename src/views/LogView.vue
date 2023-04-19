@@ -30,16 +30,10 @@ import { ElMessage } from 'element-plus'
 
 const store = useStore();
 let logs = store.state.message.logs;
-let flag = 0;
 onMounted(() => {
   updateLogs();
-  ElMessage({
-      showClose: true,
-      message: "获取日志成功",
-      type: 'success',
-      duration: 500,
-  })
 })
+
 
 const updateLogs = () =>{
     store.dispatch("get_logs_message");
