@@ -31,7 +31,7 @@ export default {
                     change_type = "recover";
                     break;
             }
-            let url = "http://192.168.208.26:8000/monitor/" + change_type;
+            let url = "http://192.168.169.25:8000/monitor/" + change_type;
             $.ajax({
                 url: url,
                 type: "get",

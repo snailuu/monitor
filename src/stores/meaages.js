@@ -230,7 +230,7 @@ export default {
     actions: {
         get_sersor_all_data(context) {
             $.ajax({
-                url: "http://192.168.208.26:8000/server/allData",
+                url: "http://192.168.169.25:8000/server/allData",
                 type: "get",
                 success(resp) {
                     let data_0_0 = resp.brightness[0];
@@ -302,7 +302,7 @@ export default {
         },
         get_sensor_gps(context) {
             $.ajax({
-                url: "http://192.168.208.26:8000/server/gps",
+                url: "http://192.168.169.25:8000/server/gps",
                 type: "get",
                 success(resp) {
                     let data_3_0 = resp.gps[0];
@@ -335,14 +335,14 @@ export default {
             const working = data.working;
             let change_type = working === true ? "turnOff" : "turnOn";
             let change_id = id.toString().padStart(3, '0');
-            let url = "http://192.168.208.26:8000/server/lamp/" + change_type + "/" + change_id
+            let url = "http://192.168.169.25:8000/server/lamp/" + change_type + "/" + change_id
 
             $.ajax({
                     url: url,
                     type: "get",
                     success(resp) {
                         //开关开启后亮度显示
-                        url = "http://192.168.208.26:8000/server/lamp/lightStatus/" + id.toString().padStart(3, '0');
+                        url = "http://192.168.169.25:8000/server/lamp/lightStatus/" + id.toString().padStart(3, '0');
                         $.ajax({
                             url: url,
                             type: "get",
@@ -378,7 +378,7 @@ export default {
             const brightness = data.brightness;
             let change_type = brightness > 0 ? "setLightUp" : "setLightDown";
             let change_id = id.toString().padStart(3, '0');
-            let url = "http://192.168.208.26:8000/server/lamp/" + change_type + "/" + change_id;
+            let url = "http://192.168.169.25:8000/server/lamp/" + change_type + "/" + change_id;
             // context.commit("update_kaiguang_brightness", {
             //     id,
             //     brightness
@@ -428,7 +428,7 @@ export default {
         },
         get_logs_message(context) {
             $.ajax({
-                url: "http://192.168.208.26:8000/log",
+                url: "http://192.168.169.25:8000/log",
                 type: "get",
                 success(resp) {
 
