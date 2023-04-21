@@ -82,7 +82,7 @@ export default {
                     },
                     {
                         id: 1,
-                        name: '经度',
+                        name: '维度',
                         value: "?",
                         color: '#F56C6C',
                         icon: 'iconfont icon-gps'
