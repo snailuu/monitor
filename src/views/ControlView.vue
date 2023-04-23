@@ -95,7 +95,7 @@ const show_kaiguang_data = () =>{
         trigger: 'axis'
       },
       legend: {
-        data: ['大灯','小灯2', '小灯1']
+        data: ['路灯E26S','路灯E26R', '路灯E26L']
       },
       grid: {
         left: '3%',
@@ -118,19 +118,19 @@ const show_kaiguang_data = () =>{
       },
       series: [
         {
-          name: '小灯2',
+          name: 'E26R',
           type: 'line',
           stack: 'Total',
           data: [150, 232, 201, 154, 190, 330, 410]
         },
         {
-          name: '小灯1',
+          name: 'E26L',
           type: 'line',
           stack: 'Total',
           data: [320, 332, 301, 334, 390, 330, 320]
         },
         {
-          name: '大灯',
+          name: 'E26S',
           type: 'line',
           stack: 'Total',
           data: [820, 932, 901, 934, 1290, 1330, 1320]
@@ -152,7 +152,7 @@ onMounted(() =>{
 //     children: [
 //       {
 //         id: 0,
-//         name: '大灯',
+//         name: 'E26S',
 //         value: 128,
 //         bg_color: '#F56C6C',
 //         icon_color: "white",
@@ -161,7 +161,7 @@ onMounted(() =>{
 //       },
 //       {
 //         id: 1,
-//         name: '小灯1',
+//         name: 'E26L',
 //         value: 374,
 //         bg_color: '#c5c3c3',
 //         icon_color: "black",
@@ -171,7 +171,7 @@ onMounted(() =>{
 //       },
 //       {
 //         id: 2,
-//         name: '小灯2',
+//         name: 'E26R',
 //         value: 374,
 //         bg_color: '#F56C6C',
 //         icon_color: "white",

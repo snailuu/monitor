@@ -123,7 +123,7 @@ export default {
             time_data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             children: [{
                     id: 3,
-                    name: '大灯',
+                    name: '路灯E26S',
                     brightness: 0,
                     bg_color: '#898989',
                     icon: 'iconfont icon-kaiguan-close',
@@ -134,7 +134,7 @@ export default {
                 },
                 {
                     id: 1,
-                    name: '小灯1',
+                    name: '路灯E26L',
                     brightness: 0,
                     bg_color: '#898989',
                     icon: 'iconfont icon-kaiguan-close',
@@ -145,7 +145,7 @@ export default {
                 },
                 {
                     id: 2,
-                    name: '小灯2',
+                    name: '路灯E26R',
                     brightness: 0,
                     bg_color: '#898989',
                     icon: 'iconfont icon-kaiguan-open',
