@@ -52,7 +52,7 @@ const change_monitor = id => {
 
 const imgSrc = ref(""); // 使用 ref 创建一个响应式数据
 
-const ws = new WebSocket("ws://127.0.0.1:8090/camera");
+const ws = new WebSocket("ws://192.168.169.25:8090/camera");
 
 const timer = setInterval(function () {
   if (ws.readyState == 1) {
